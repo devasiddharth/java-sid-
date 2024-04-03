@@ -1,0 +1,30 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+
+public class Inventory {
+
+  private HashMap<String, LinkedList<Item>> itemsByCategory;
+
+  public Inventory() {
+    this.itemsByCategory = new HashMap<>();
+  }
+
+  public void addItem(String category, Item item) {
+    LinkedList<Item> items = itemsByCategory.get(category);
+    if (items == null) {
+      items = new LinkedList<>();
+      itemsByCategory.put(category, items);
+    }
+    items.add(item);
+  }
+
+  public LinkedList<Item> getItems(String category) {
+    return itemsByCategory.get(category);
+  }
+
+  // ... (other methods to manage inventory)
+}
+
+class Item {
+  // ... (item properties)
+}
